@@ -1,0 +1,95 @@
+-To do list
+
+DONE-Install and setup (Django)
+	python -m venv (Django-만들폴더)
+	>cd scripts
+	>activate
+	pip install django
+	pip install django-rest-framework
+	pip install django-cors-headers
+	pip install djoser
+	pip install pillow
+	pip install stripe
+	goto projects/vdjango(django 폴더명)>
+	django-admin startproject config .
+	add INSTALLED_APPS IN SETTINGS.PY
+		'rest_framework',
+		'rest_framework.authtoken',
+		'corsheaders',
+		'djoser',
+	add CORS_ALLOWED_ORIGINS IN SETTINGS.PY
+		CORS_ALLOWED_ORIGINS = [
+			"http://localhost:8080",
+		]
+	add MIDDLEWARE IN SETTINGS.PY
+		'corsheaders.middleware.CorsMiddleware',
+	add path in urls.py at config
+		from django.urls import include
+		path('api/v1/', include('djoser.urls')),
+		path('api/v1/', include('djoser.urls.authtoken')),
+	python manage.py makemigrations
+	python manage.py migrate
+	python manage.py createsuperuser
+
+DONE-Install and setup (Vue)
+	goto projects>
+	npm install -g @vue/cli
+	vue create vdjango_vue(make folder)
+		check manually select features
+		check Choose Vue version / babel / Router / Vuex / CSS Pre-processors
+		check 3.x
+		check y
+		check sass/scss (with dart-sass)
+		check in dedicated config files
+		check n
+	goto projects/vdjango_vue>
+	npm install axios
+	npm install bulma
+	npm run serve
+	
+DONE-Include Font Awesome
+DONE-Set up the base template
+-Create django app and models for products
+-Create serializer and views for the products
+-Create simple front page (latest products)
+-View a product
+	-Create viewset in Django
+	-Create vue page for showing product
+	-Add link to detail page
+-Sette opp Vuex / State
+-Make it possible to add to cart
+	-Add functionality to vuex
+	-Initialize store in app.vue
+	-Add button to product page
+	-Show a toast message
+-Implement a loading bar
+-Set document title(All pages)
+-make it possible to view a category
+	-Convert the product to a component
+-Change contents of cart
+	-Increment/Decrement content
+	-Remove from cart
+-Make it possible to sign up
+-Make it possible to log in
+-Create a simple my account page
+-Proceed to checkout (Authentication)
+-Create a simple success page
+-Show my orders on the my account page
+	-An order should be a component
+-Deploy Django
+	-Create a server and access it
+	-Install software
+	-Create postgres database
+	-Create users and virtual environment
+	-Install packages and get project foiles
+	-Create separate settingsfile for production
+	-Set up gunicorn
+	-Set up supervisor
+	-Obtain SSL certificate
+	-Set up nginx
+-Deploy Vue
+	-Generate files locally
+	-send files to server
+	-set up nginx virtual host
+
+	
