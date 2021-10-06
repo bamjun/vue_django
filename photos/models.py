@@ -21,7 +21,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    Category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     slug = models.SlugField()
     description = models.TextField(blank=True, null=True)
@@ -62,7 +62,7 @@ class Product(models.Model):
         img.convert('RGB')
         img.thumbnail(size)
 
-        thumb.io = BytesIO()
+        thumb_io = BytesIO()
         img.save(thumb_io, 'JPEG', quality=85)
 
         thumbnail = File(thumb_io, name=image.name)
