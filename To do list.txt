@@ -30,7 +30,6 @@ DONE-Install and setup (Django)
 	python manage.py makemigrations
 	python manage.py migrate
 	python manage.py createsuperuser
-
 DONE-Install and setup (Vue)
 	goto projects>
 	npm install -g @vue/cli
